@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# IDE Settings
+.idea/
+.DS_Store
+
+# Databases
+data/processed/*.db
+
+# Raw datasets (keep out of git to save space)
+data/raw/
+CRM+Sales+Opportunities/

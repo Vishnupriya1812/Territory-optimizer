@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: territory-optimiser
+    runtime: docker
+    plan: free
+    envVars:
+      - key: STREAMLIT_SERVER_HEADLESS
+        value: "true"
