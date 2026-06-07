@@ -197,7 +197,8 @@ def render_sector_page(df_crm, df_scored):
     
     # Load cleaned accounts to merge sector info
     try:
-        df_acc = pd.read_csv(config.CRM_ACCOUNTS_CLEAN_PATH)
+        accounts_path = getattr(config, 'CRM_ACCOUNTS_CLEAN_PATH', config.PROCESSED_DATA_DIR / "accounts_cleaned.csv")
+        df_acc = pd.read_csv(accounts_path)
     except Exception as e:
         st.error(f"Error loading accounts database: {e}")
         return
