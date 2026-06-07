@@ -19,6 +19,7 @@ SHAPEFILE_PATH = SHAPEFILES_DIR / "us_states.geojson"
 # Processed file paths
 TERRITORY_MASTER_PATH = PROCESSED_DATA_DIR / "territory_master.csv"
 TERRITORY_SCORED_PATH = PROCESSED_DATA_DIR / "territory_scored.csv"
+CRM_ACCOUNTS_CLEAN_PATH = PROCESSED_DATA_DIR / "accounts_cleaned.csv"
 SQLITE_DB_PATH = PROCESSED_DATA_DIR / "territory.db"
 
 # State data mappings

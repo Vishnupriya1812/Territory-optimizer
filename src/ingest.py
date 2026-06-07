@@ -202,6 +202,16 @@ def ingest_census_data():
     print(f"Census Ingestion complete. Row count: {len(df_census)}")
     return df_census
 
+def ingest_accounts_data():
+    """Ingests and cleans CRM accounts data."""
+    print("Ingesting B2B CRM Accounts...")
+    accounts = pd.read_csv(config.CRM_ACCOUNTS_PATH)
+    # Basic cleaning
+    accounts['sector'] = accounts['sector'].fillna('Unknown')
+    accounts['employees'] = pd.to_numeric(accounts['employees']).fillna(0.0)
+    print(f"Accounts Ingestion complete. Row count: {len(accounts)}")
+    return accounts
+
 def main():
     setup_directories()
     
@@ -210,6 +220,12 @@ def main():
     crm_out_path = config.PROCESSED_DATA_DIR / "crm_cleaned.csv"
     df_crm.to_csv(crm_out_path, index=False)
     print(f"Saved cleaned CRM data to {crm_out_path}")
+    
+    # Process Accounts Data
+    df_accounts = ingest_accounts_data()
+    accounts_out_path = config.CRM_ACCOUNTS_CLEAN_PATH
+    df_accounts.to_csv(accounts_out_path, index=False)
+    print(f"Saved cleaned Accounts data to {accounts_out_path}")
     
     # Process Census Data
     df_census = ingest_census_data()
